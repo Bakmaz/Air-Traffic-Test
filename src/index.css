@@ -3,20 +3,27 @@ body {
   padding: 0;
   font-family: sans-serif;
 }
-
 .card {
   width: 200px;
   float:left;
   margin: 10px;
+  padding-top:5px;
 }
-.flight-number {
-  color: blue;
+.green {
+  color:#117a8b;
 }
 .plane-icon-east {  
-  transform: rotate(45deg);
-  color:lightblue;
+  transform: rotate(45deg); 
 }
 .plane-icon-west {
-  transform: rotate(-135deg);
-  color:blue;
+  transform: rotate(-135deg);  
+}
+.card-details {
+ padding-top: 0px;
+}
+.flight-details {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  min-width: 300px;
 }

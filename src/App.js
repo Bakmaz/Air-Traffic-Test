@@ -3,6 +3,7 @@ import airplaneIcon from './img/airplaneIcon.svg';
 import './App.css';
 import FlightsList from './FlightsList';
 import FlightDetails from './FlightDetails';
+import ErrorComponent from './ErrorComponent';
 import 'font-awesome/css/font-awesome.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {BrowserRouter as Router, Route, Redirect} from 'react-router-dom';
@@ -12,7 +13,7 @@ class App extends Component {
     super();
     this.state={
       redirectToFlightList: false,
-      redirectToError: false
+      redirectToErrorComponent: false
         };
   }
 
@@ -21,7 +22,7 @@ class App extends Component {
     navigator.geolocation.getCurrentPosition(function(position) {
       self.setState({redirectToFlightList: true});
     }, function(){
-      self.setState({redirectToError: true});
+      self.setState({redirectToErrorComponent: true});
     });
   }
   
@@ -35,13 +36,14 @@ class App extends Component {
         </header>         
         <Route exact path="/flights" component={FlightsList}/>   
         <Route path="/flights/:flightId" component={FlightDetails}/>
+        <Route path="/error" component={ErrorComponent}/>
         {
           this.state.redirectToFlightList ? (
             <Redirect to="/flights"/>
           ) : ( <div/> )
         }
         {
-          this.state.redirectToError ? (
+          this.state.redirectToErrorComponent ? (
             <Redirect to="/error"/>
           ) : ( <div/> )
         }

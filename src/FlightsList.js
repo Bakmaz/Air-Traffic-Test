@@ -26,18 +26,26 @@ class FlightsList extends React.Component {
             this.setState({aircraftList: res.data});
         });
     }
+    compare(a,b){
+        if (a.Alt > b.Alt)
+          return -1;
+        if (a.Alt < b.Alt)
+          return 1;
+        return 0;
+      }
+    
     render(){
-        return <div>
+        return <div>            
             { 
-                this.state.aircraftList.acList.map(function(item, index){
+                this.state.aircraftList.acList.sort(this.compare).map(function(item, index){
                     return <div className="card" key={index}>
-                                <i className={ 'fa fa-plane plane-icon-' + (item.Brng < 180 ? 'east' : 'west')}></i>      
+                                <i className={'green fa fa-plane fa-3x plane-icon-' + (item.Brng < 180 ? 'east' : 'west')}></i>      
                                 <div className="card-body">
-                                    <h5 className="card-title">Flight Code Number <br/>
-                                        <span className="flight-number">{item.Call || 'N/A'}</span>
-                                    </h5>
-                                    <p className="card-text">Altitude: {item.Alt}</p>
-                                    <Link to={'/flights/'+ item.Id }><button className="btn btn-primary">Flight Details</button></Link>
+                                    <h6>Flight Code Number </h6>
+                                    <h5 className="green">{item.Call || 'N/A'}</h5>                                    
+                                    <p className="card-text">Altitude: {item.Alt}</p>                            
+
+                                    <Link to={'/flights/'+ item.Id }><button className="btn btn-info">Flight Details</button></Link>
                                 </div>
                             </div>
                 })
