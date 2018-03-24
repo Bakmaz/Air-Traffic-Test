@@ -14,7 +14,9 @@ body {
 }
 .plane-icon-east {  
   transform: rotate(45deg);
+  color:lightblue;
 }
 .plane-icon-west {
   transform: rotate(-135deg);
+  color:blue;
 }
