@@ -20,17 +20,20 @@ class FlightDetails extends React.Component {
     render(){
         
         return <div className="flight-details w-50">            
-         <div className="card card-details w-100">
-                    <div className="card-header"><img src={airplaneIcon}  alt="airplaneIcon"/></div>
-                    <div className="card-body">
-                        <h6>From:</h6> 
+                    <div className="card card-details w-100">
+                        <div className="card-header"><img src={airplaneIcon}  alt="airplaneIcon"/></div>
+                        <div className="card-body">
+                            <h6>From:</h6> 
                             <h5 className="green">{this.state.flightDetails.From || 'N/A'}</h5>
                             <h6>To:</h6> 
                             <h5 className="green">{this.state.flightDetails.To || 'N/A'}</h5>                       
-                    </div>  
-                    <div className="card-footer">{this.state.flightDetails.Mdl || 'N/A'}</div>               </div>  
-                <Link to={'/flights/'}><button className="btn btn-default"><i className="fa fa-chevron-left"></i> Back to aircraft list</button></Link>
-                </div>
+                        </div>  
+                        <div className="card-footer">
+                            <span className="green">{this.state.flightDetails.Mdl || 'N/A'}</span>
+                        </div>      
+                    </div>
+                    <Link to={'/flights/'}><button className="btn btn-default"><i className="fa fa-chevron-left"></i> Back to aircraft list</button></Link>
+                </div> 
     }
 }
 export default FlightDetails;

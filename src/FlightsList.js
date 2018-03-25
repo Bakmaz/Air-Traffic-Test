@@ -40,7 +40,7 @@ class FlightsList extends React.Component {
             { 
                 this.state.aircraftList.acList.sort(this.compare).map(function(item, index){
                     return <div className="card" key={index}>
-                                <i className={'green fa fa-plane fa-3x plane-icon-' + (item.Brng < 180 ? 'east' : 'west')}></i>      
+                                <i className={'green fa fa-plane fa-3x plane-icon-' + (item.Trak < 180 ? 'east' : 'west')}></i>      
                                 <div className="card-body">
                                     <h6>Flight Code Number </h6>
                                     <h5 className="green">{item.Call || 'N/A'}</h5>                                    
