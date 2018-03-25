@@ -7,7 +7,8 @@ class FlightDetails extends React.Component {
     constructor(){
         super();
         this.state = {
-            flightDetails: {}
+            flightDetails: {},
+            logo:''
         };
     }
     componentDidMount(){
@@ -15,13 +16,22 @@ class FlightDetails extends React.Component {
         axios.get('http://localhost:3001/flights?lat=' + localStorage.latitude + '&lng=' + localStorage.longitude +'&id='+ id)
             .then(res => {            
                 this.setState({flightDetails: res.data});
+                let companyInfo = 'https://company.clearbit.com/v1/domains/find?name=' + res.data.Op;
+                var config = {
+                    headers: {'Authorization': 'Bearer sk_039c688ca06388db38c783a42a0f4f4f'}
+               };
+
+              axios.get(companyInfo, config)                                             
+              .then( res => {
+                  this.setState({logo: res.data.logo});                 
+                });
             });
     }
     render(){
         
         return <div className="flight-details w-50">            
                     <div className="card card-details w-100">
-                        <div className="card-header"><img src={airplaneIcon}  alt="airplaneIcon"/></div>
+                        <div className="card-header"><img src={this.state.logo || airplaneIcon}  alt="airplaneIcon"/></div>
                         <div className="card-body">
                             <h6>From:</h6> 
                             <h5 className="green">{this.state.flightDetails.From || 'N/A'}</h5>
