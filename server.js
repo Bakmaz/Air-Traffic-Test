@@ -17,7 +17,7 @@ app.get('/flights', function(req,res) {
 
   var url_parts = url.parse(req.url, true);
   var query = url_parts.query;
-  var newurl = apiUrl +query.lat+'&lng='+query.lng+'&fDstL=0&fDstU=300';
+  var newurl = apiUrl +query.lat+'&lng='+query.lng+'&fDstL=0&fDstU=100';
   request(newurl, (err, response, body)=>{
     if(!err && response.statusCode === 200) {
       let jsonResponse = JSON.parse(body);
