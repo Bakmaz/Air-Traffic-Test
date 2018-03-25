@@ -12,7 +12,7 @@ class FlightDetails extends React.Component {
     }
     componentDidMount(){
         let id = this.props.match.params.flightId;
-        axios.get('http://localhost:3001/flights?lat=33.433638&lng=-112.008113&id=' + id)
+        axios.get('http://localhost:3001/flights?lat=' + localStorage.latitude + '&lng=' + localStorage.longitude +'&id='+ id)
             .then(res => {            
                 this.setState({flightDetails: res.data});
             });

@@ -20,6 +20,8 @@ class App extends Component {
   componentDidMount(){
     let self = this;
     navigator.geolocation.getCurrentPosition(function(position) {
+      localStorage.latitude = position.coords.latitude;
+      localStorage.longitude = position.coords.longitude;
       self.setState({redirectToFlightList: true});
     }, function(){
       self.setState({redirectToErrorComponent: true});

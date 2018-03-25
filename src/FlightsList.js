@@ -20,8 +20,9 @@ class FlightsList extends React.Component {
         
         this.getData();
     }
+    
     getData(){
-        axios.get('http://localhost:3001/flights?lat=33.433638&lng=-112.008113')
+        axios.get('http://localhost:3001/flights?lat=' + localStorage.latitude + '&lng=' + localStorage.longitude)
         .then(res => {            
             this.setState({aircraftList: res.data});
         });
