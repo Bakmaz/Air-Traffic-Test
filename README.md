@@ -1,20 +1,19 @@
-## How to use Airtraffic Test
+## How to use Air Traffic Test
 
-In the project directory, you can run:
+#### In the project directory, to start app, you should run:
 
+### `npm install`
+and then
 ### `npm start`
 
-Runs the app in the development mode.<br>
+App will be started in the development mode.<br>
 Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-The page will reload if you make edits.<br>
-You will also see any lint errors in the console.
-
+#### To create bulid package, you should run:
 
 ### `npm run build`
 
-Builds the app for production to the `build` folder.<br>
+This builds the app for production to the `build` folder.<br>
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
-The build is minified and the filenames include the hashes.<br>
-Your app is ready to be deployed!
+The build is minified and the filenames include the hashes.
