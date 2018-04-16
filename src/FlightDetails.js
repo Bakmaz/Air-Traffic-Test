@@ -13,11 +13,11 @@ class FlightDetails extends React.Component {
     };
   }
   componentDidMount(){
-    let id = this.props.match.params.flightId;
-    axios.get('http://localhost:3001/flights?lat=' + localStorage.latitude + '&lng=' + localStorage.longitude +'&id='+ id)
+    let id = this.props.match.params.flightId;    
+    axios.get(`http://localhost:3001/flights?lat= ${localStorage.latitude} &lng= ${ localStorage.longitude} &id= ${id}`)
       .then(res => {            
         this.setState({flightDetails: res.data});
-        let companyInfo = 'https://company.clearbit.com/v1/domains/find?name=' + res.data.Op;
+        let companyInfo = `https://company.clearbit.com/v1/domains/find?name= ${res.data.Op}`;
         let config = {
           headers: {'Authorization': 'Bearer sk_039c688ca06388db38c783a42a0f4f4f'}
         };
@@ -41,7 +41,7 @@ class FlightDetails extends React.Component {
                   <span className="green">{this.state.flightDetails.Mdl || 'N/A'}</span>
                 </div>      
               </div>
-              <Link to={'/flights/'}><button className="btn btn-default"><i className="fa fa-chevron-left"></i> Back to aircraft list</button></Link>
+              <Link to="/flights/"><button className="btn btn-default"><i className="fa fa-chevron-left"></i> Back to aircraft list</button></Link>
             </div> 
   }
 }

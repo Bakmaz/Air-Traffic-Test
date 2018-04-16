@@ -15,19 +15,18 @@ class App extends Component {
     this.state = {
       redirectToFlightList: false,
       redirectToErrorComponent: false
-    };
-  }
+    };   
+  } 
 
-  componentDidMount(){
-    let self = this;
-    navigator.geolocation.getCurrentPosition(function(position) {
+  componentDidMount(){ 
+    navigator.geolocation.getCurrentPosition((position) => {
         localStorage.latitude = position.coords.latitude;
         localStorage.longitude = position.coords.longitude;
-        self.setState({redirectToFlightList: true});
-      }, function(){
-        self.setState({redirectToErrorComponent: true});
+        this.setState({redirectToFlightList: true});
+      }, () => {
+        this.setState({redirectToErrorComponent: true});
     });
-  }
+  } 
   
   render() {
     return (
